@@ -1,1 +1,43 @@
+QUESTION:
 
+Given a string and a number K, change every kth character to uppercase from beginning in string.
+Sample Testcase :
+INPUT
+string 2
+OUTPUT
+sTrInG
+
+CODE:
+
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+inp.on("line", (data) => {
+  var a=data.split(" ");
+  var b=a[0];
+  let c=parseInt(a[1]);
+  var res="";
+  let k=parseInt(b.length);
+  if(c!==0)
+  {
+  for(let i=1;i<=k;i++)
+  {
+      if(parseInt(i)%c===0)
+      {
+          res=res+b[i-1].toUpperCase();
+      }
+      else 
+      {
+          res=res+b[i-1];
+      }
+  }
+  }
+  else
+  {
+      res=b;
+  }
+  console.log(res);
+});
