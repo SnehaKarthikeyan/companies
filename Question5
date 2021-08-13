@@ -1,0 +1,63 @@
+QUESTION:
+
+Given an array N, sort it in ascending order till it reaches kth elements and after that sort it in descending order.
+Input Size : N <= 100000
+Sample Testcase :
+INPUT
+5 2
+4 3 1 2 4
+OUTPUT
+3 4 4 2 1
+
+CODE:
+
+const readline = require('readline');
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+ userInput.push(data);
+});
+
+inp.on("close", () => {
+ var a = (userInput[0]).split(" ");
+ var b = (userInput[1]).split(" ");
+ let c = parseInt(a[0]);
+ let d = parseInt(a[1]);
+ let flag=0;
+ let temp;
+ for(let i=0;i<d;i++)
+ {
+     for(let j=i+1;j<d;j++)
+     {
+      if(parseInt(b[i])>parseInt(b[j]))
+      {
+         temp=b[i];
+         b[i]=b[j];
+         b[j]=temp;
+      }
+     }
+ }
+ for(let i=d;i<c;i++)
+ {
+     for(let j=i+1;j<c;j++)
+     {
+      if(parseInt(b[i])<parseInt(b[j]))
+      {
+         temp=b[i];
+         b[i]=b[j];
+         b[j]=temp;
+      }
+     }
+ }
+ var res=b[0];
+ for(let i=1;i<c;i++)
+ {
+     res=res+" "+b[i];
+ }
+     console.log(res);
+});
