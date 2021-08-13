@@ -1,0 +1,49 @@
+QUESTION:
+
+Given 2 numbers N,K and an array of N integers, find if the element K exists in the array.
+Input Size : N <= 100000
+Sample Testcase :
+INPUT
+5 2
+1 2 3 4 5
+OUTPUT
+yes
+HINT: Read about Binary Search
+
+CODE:
+
+const readline = require('readline');
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+ userInput.push(data);
+});
+
+inp.on("close", () => {
+ var a = (userInput[0]).split(" ");
+ var b = (userInput[1]).split(" ");
+ let c = parseInt(a[0]);
+ let d = parseInt(a[1]);
+ let e = parseInt(b.length);
+ let flag=0;
+ for(let i=0;i<e;i++)
+ {
+     if(parseInt(b[i])==d)
+     {
+         flag=1;
+     }
+ }
+ if(flag==1)
+ {
+     console.log("yes");
+ }
+ else
+ {
+     console.log("no");
+ }
+});
