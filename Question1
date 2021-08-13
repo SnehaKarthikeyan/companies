@@ -24,3 +24,4 @@ inp.on("line", (data) => {
   let res=(b*d)+c;
   console.log(res);
 });
+
