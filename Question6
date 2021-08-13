@@ -37,7 +37,7 @@ inp.on("close", () => {
     flag=0;
     for(let j=0;j<b.length;j++)
     {
-        if(b[j]=='a' || b[j]=='e' || b[j]=='i' || b[j]=='o' || b[j]=='u')
+        if(b[j]=='a' || b[j]=='e' || b[j]=='i' || b[j]=='o' || b[j]=='u'|| b[j]=='A' || b[j]=='E' || b[j]=='I' || b[j]=='O' || b[j]=='U')
         {
             flag=1;
         }
