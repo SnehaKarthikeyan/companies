@@ -29,9 +29,8 @@ inp.on("close", () => {
  var b = (userInput[1]).split(" ");
  let c = parseInt(a[0]);
  let d = parseInt(a[1]);
- let e = parseInt(b.length);
  let flag=0;
- for(let i=0;i<e;i++)
+ for(let i=0;i<c;i++)
  {
      if(parseInt(b[i])==d)
      {
