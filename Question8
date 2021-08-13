@@ -1,0 +1,53 @@
+QUESTION:
+
+Given a string S ,print the vowels first and then consonants in the same order as they have occurred in the string.
+Input Size : N <= 10000
+Sample Testcase :
+INPUT
+GuVI
+OUTPUT
+uIGV
+
+CODE:
+
+const readline = require('readline');
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+ userInput.push(data);
+});
+
+inp.on("close", () => {
+ var a = parseInt(userInput[0]);
+ var b;
+ var flag,flag1=0;
+ for(let i=1;i<=a;i++)
+ {
+    b=userInput[i];
+    flag=0;
+    for(let j=0;j<b.length;j++)
+    {
+        if(b[j]=='a' || b[j]=='e' || b[j]=='i' || b[j]=='o' || b[j]=='u'|| b[j]=='A' || b[j]=='E' || b[j]=='I' || b[j]=='O' || b[j]=='U')
+        {
+            flag=1;
+        }
+    }
+    if(flag!==0)
+    {
+        flag1=flag1+1;
+    }
+ } 
+ if(flag1==a)
+ {
+     console.log("yes");
+ }
+ else
+ {
+     console.log("no");
+ }
+});
