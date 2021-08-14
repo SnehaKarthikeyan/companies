@@ -1,0 +1,42 @@
+QUESTION:
+
+Given a number N print a right angled traingle structure with the starting level as single 1 and every immediate proceeding level with 2 more additional ones than the previous level .Repeat the pattern for N levels.
+Input Size : N <= 1000
+Sample Testcase :
+INPUT
+3
+OUTPUT
+1
+1 1 1
+1 1 1 1 1
+
+CODE:
+
+const readline = require('readline');
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+ userInput.push(data);
+});
+
+inp.on("close", () => {
+ let a = parseInt(userInput[0]);
+ var res;
+ let count=3;
+ console.log("1");
+ for(let i=0;i<a-1;i++)
+ {
+     res="1";
+     for(let j=0;j<(count)-1;j++)
+     {
+         res=res+" "+1;
+     }
+ console.log(res);
+ count=count+2;
+ }
+});
