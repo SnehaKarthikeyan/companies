@@ -1,0 +1,59 @@
+QUESTION:
+
+Swagger and Rock are playing a word game. They need to check the two strings use the same base alphabets. Two strings are said to have same base alphabets if they use the same characters to form the word. eg: rescue and curse have same base alphabets - c,e,r,s,u.If it so print 'true' else print 'false'.
+Input Size : |S| <= 1000000
+Sample Testcase :
+INPUT
+rescue curse
+OUTPUT
+true
+
+CODE:
+
+const readline = require('readline');
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+ userInput.push(data);
+});
+
+inp.on("close", () => {
+ var a = userInput[0].split(" ");
+ var b = a[0];
+ var c = a[1];
+ let flag=parseInt(0);
+ let flag1=parseInt(0);
+ for(let i=0;i<b.length;i++)
+ {
+      for(let j=0;j<c.length;j++)
+      { 
+          if(b[i]==c[j])
+          {
+            flag=flag+1;
+          }
+      }
+ }
+ for(let i=0;i<c.length;i++)
+ {
+      for(let j=0;j<b.length;j++)
+      { 
+          if(c[i]==b[j])
+          {
+              flag1=flag1+1;
+          }
+      }
+ }
+ if(flag>b.length && flag1>c.length)
+ {
+     console.log("true");
+ }
+ else
+ {
+     console.log("false");
+ }
+});
