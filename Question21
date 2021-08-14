@@ -1,0 +1,55 @@
+QUESTION:
+
+Print the position of first 1 from left to right, in binary representation of product of 2 integers after the first one.
+Sample Testcase :
+INPUT
+18 2
+OUTPUT
+4
+
+CODE:
+
+const readline = require('readline');
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+ userInput.push(data);
+});
+
+inp.on("close", () => {
+ var a = userInput[0].split(" ");
+ let b = parseInt(a[0]);
+ let c = parseInt(a[1]);
+ let d = parseInt(b*c);
+ let bin = 0;
+ let rem, i = 1;
+ if(d===0)
+ {
+     console.log(0);
+ }
+ else
+ {
+ while (d !== 0) 
+ {
+        rem = d % 2;
+        d = parseInt(d / 2);
+        bin = bin + rem * i;
+        i = i * 10;
+ }
+ bin=bin.toString();
+ e=parseInt(bin.length);
+ for(i=1;i<e;i++)
+ {
+     if(bin[i]=='1')
+     {
+        console.log(i+1);
+     }
+ }
+ }
+ return 0;
+});
