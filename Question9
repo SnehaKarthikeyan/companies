@@ -1,0 +1,36 @@
+QUESTION:
+
+Given a number N followed by a list of N numbers. Write a program to reverse the list and print the list.
+Input Size : 1 <= N <= 10000
+Sample Testcases :
+INPUT
+7
+1 2 3 4 5 6 7
+OUTPUT
+7->6->5->4->3->2->1
+
+CODE:
+
+const readline = require('readline');
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+ userInput.push(data);
+});
+
+inp.on("close", () => {
+ let a = parseInt(userInput[0]);
+ var b = (userInput[1]).split(" ");
+ let flag=0;
+ var res=b[a-1];
+ for(let i=a-2;i>=0;i--)
+ {
+     res=res+"->"+b[i];
+ }
+     console.log(res);
+});
