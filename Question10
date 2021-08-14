@@ -1,0 +1,40 @@
+QUESTION:
+
+Given a sentence interchange the between the word 'and'.
+Input Size : |S| <= 1000000
+Sample Testcase :
+INPUT
+jack and jill went up and down to get water
+OUTPUT
+jill and jack went down and up to get water
+
+CODE:
+
+const readline = require('readline');
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+ userInput.push(data);
+});
+
+inp.on("close", () => {
+ var a = (userInput[0]).split(" ");
+ let b = a.length;
+ var res="";
+ for(let i=0;i<b;i++)
+ {
+     if(a[i]=="and")
+     {
+         res=a[i-1];
+         a[i-1]=a[i+1];
+         a[i+1]=res;
+     }
+ }
+ a=a.join(" ");
+ console.log(a);
+});
