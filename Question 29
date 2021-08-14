@@ -31,7 +31,7 @@ inp.on("close", () => {
  let temp;
  for(let i=0;i<c;i++)
  {
-     for(j=i+1;j<c;j++)
+     for(let j=i+1;j<c;j++)
      {
          if(parseInt(b[i])<parseInt(b[j]))
          {
