@@ -1,0 +1,50 @@
+QUESTION:
+
+Given two strings S1 and S2,display 'yes' if given two strings are complementary otherwise display 'no'. If we join alphabets of both the strings we should get all 26 capital letters exactly once, then only we can call them as complementary.
+Sample Testcase :
+INPUT
+ABDCFGIJKLMNOPQUVWXYZ
+EHRST
+OUTPUT
+yes
+
+CODE:
+
+const readline = require('readline');
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+ userInput.push(data);
+});
+
+inp.on("close", () => {
+ var a = userInput[0];
+ var b = userInput[1];
+ var res = a.concat(b).split("");
+ var c=res.length;
+ let flag=parseInt(0);
+ var res1=res.sort().toString().split(",").join("");
+ let x,y;
+ for(let i=0;i<25;i++)
+ {
+     x=parseInt(res1.charCodeAt(i));
+     y=parseInt(res1.charCodeAt(i+1));
+     if((x+1)==y)
+     {
+         flag=flag+1;
+     }
+ }
+ if(flag==25)
+ {
+   console.log("yes");
+ }
+ else
+ {
+    console.log("no");
+ }
+});
