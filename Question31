@@ -1,0 +1,49 @@
+QUESTION:
+
+Given a number N, print all prime numbers less than N(in ascending order).
+Input Size : 1 <= N <= 100000
+Sample Testcase :
+INPUT
+10
+OUTPUT
+2 3 5 7
+
+CODE:
+
+const readline = require('readline');
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+ userInput.push(data);
+});
+
+inp.on("close", () => {
+ let a = parseInt(userInput[0]);
+ let count = parseInt(0);
+ var res="";
+ if(a>=1)
+ {
+     res="2";
+ }
+ for(let i=3;i<=a;i++)
+ {
+     count=0;
+     for(let j=1;j<=i;j++)
+     {
+         if((parseInt(i)%parseInt(j))===0)
+         {
+             count=count+1;
+         }
+     }
+     if(count==2)
+     {
+         res=res+" "+i;
+     }
+ }
+ console.log(res);
+});
