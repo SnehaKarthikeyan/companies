@@ -41,5 +41,4 @@ inp.on("close", () => {
      }
  }
  console.log(count);
- return 0;
 });
