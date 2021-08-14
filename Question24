@@ -1,0 +1,56 @@
+QUESTION:
+
+Given 2 numbers A,B. Print the GCD of A! and B!.
+Sample Testcase :
+INPUT
+4 2
+OUTPUT
+2
+
+CODE:
+
+const readline = require('readline');
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+ userInput.push(data);
+});
+
+inp.on("close", () => {
+ var a = userInput[0].split(" ");
+ let b = parseInt(a[0]);
+ let c = parseInt(a[1]);
+ let sum = parseInt(1);
+ let sum1 = parseInt(1);
+ for(let i=1;i<=b;i++)
+ {
+     sum=sum*i;
+ }
+ for(let i=1;i<=c;i++)
+ {
+     sum1=sum1*i;
+ }
+ if(sum>999999)
+ {
+     console.log(sum1);
+ }
+ else if(sum1>999999)
+ {
+     console.log(sum);
+ }
+ else
+ {
+ var gcd = function(a, b) {
+    if (b === 0) {
+        return a;
+    }
+  return gcd(b, a % b);
+ };
+ console.log(gcd(sum,sum1));
+ }
+});
