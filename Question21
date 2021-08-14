@@ -51,5 +51,4 @@ inp.on("close", () => {
      }
  }
  }
- return 0;
 });
