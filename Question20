@@ -1,0 +1,72 @@
+QUESTION:
+
+Given a number N followed by N numbers. Out of these N numbers some of them are repeated. Write a program to find the number which is repeated and print the repeated numbers in sorted order. If no numbers are repeated print "unique".
+Input Size : 1 <= N <= 100000
+Sample Testcase :
+INPUT
+7
+1 2 3 2 3 4 3
+OUTPUT
+2 3
+
+CODE:
+
+const readline = require('readline');
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+ userInput.push(data);
+});
+
+inp.on("close", () => {
+ let a = parseInt(userInput[0]);
+ var b = userInput[1].split(" ");
+ var res="";
+ var res1="";
+ let flag=parseInt(0);
+ let flag1=parseInt(0);
+ for(let i=0;i<a;i++)
+ {
+      for(let j=i+1;j<a;j++)
+      {
+         flag=0;
+         for(let k=0;k<res1.length;k++)
+         {
+             if(b[i]==res1[k])
+             {
+                 flag=1;
+             }
+        }
+     if(flag===0)
+     {
+         if(b[i]==b[j])
+         {
+             if(flag1===0)
+             {
+             res=res+b[i];
+             res1=res1+b[i];
+             flag1=1;
+             }
+             else
+             {
+             res=res+" "+b[i];
+             res1=res1+b[i];
+             }
+         }
+     }
+     }
+ }
+ if(flag1!==0)
+ {
+     console.log(res);
+ }
+ else
+ {
+     console.log("unique");
+ }
+});
