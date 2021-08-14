@@ -1,0 +1,45 @@
+QUESTION:
+
+Given a number N and an array of N elements, print the number of lucky numbers in the array.
+Lucky number: N*I is also present in the array then the number is lucky where N is the number of elements in the array and I is the position of the element.(1 based indexing)
+Input Size : 1 <= N, I <= 100000
+Sample Testcases :
+INPUT
+5
+1 2 3 4 5
+OUTPUT
+1
+
+CODE:
+
+const readline = require('readline');
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+ userInput.push(data);
+});
+
+inp.on("close", () => {
+ let a = parseInt(userInput[0]);
+ var b = userInput[1].split(" ");
+ let c;
+ let count=parseInt(0);
+ for(let i=0;i<a;i++)
+ {
+     for(let j=1;j<=a;j++)
+     {
+      c=parseInt(j*a);
+      if(b[i]==c)
+      {
+        count=count+1;
+      }
+     }
+ }
+ console.log(count);
+ return 0;
+});
