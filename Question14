@@ -1,0 +1,66 @@
+QUESTION:
+
+Given a number N and array of N integers, print the difference between the indices of smallest and largest number(if there are multiple occurances, consider the first occurance).
+Input Size : |N| <= 1000000
+Sample Testcase :
+INPUT
+5
+3 5 4 4 7
+OUTPUT
+4
+
+CODE:
+
+const readline = require('readline');
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+ userInput.push(data);
+});
+
+inp.on("close", () => {
+ var a = parseInt(userInput[0]);
+ var b = (userInput[1]).split(" ");
+ let x,y;
+ for(let i=0;i<a;i++)
+ {
+    for(let j=i+1;j<a;j++)
+    {
+        if(b[i]>b[j])
+        {
+            temp=b[i];
+            b[i]=b[j];
+            b[j]=temp;
+        }
+    }
+ }
+ let res;
+ let j=a-1;
+ let count,val;
+ let flag=0;
+ while(flag!==1)
+ {
+ for(let i=0;i<a;i++)
+ {
+     count=parseInt(0);
+     res=parseInt(b[j]);
+     if(res==b[i])
+     {
+        count=count+1
+     }
+     if(count==1)
+     {
+         val=parseInt(b[j-1]);
+         flag=1;
+     }
+     j=j-1;
+ }
+ }
+ var c=val-parseInt(b[0]);
+ console.log(c);
+});
