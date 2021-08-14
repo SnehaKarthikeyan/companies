@@ -26,41 +26,20 @@ inp.on("line", (data) => {
 inp.on("close", () => {
  var a = parseInt(userInput[0]);
  var b = (userInput[1]).split(" ");
- let x,y;
+ let x=0,y=0,max=parseInt(0),min=parseInt(b[0]);
  for(let i=0;i<a;i++)
  {
-    for(let j=i+1;j<a;j++)
-    {
-        if(b[i]>b[j])
+        if(max<b[i])
         {
-            temp=b[i];
-            b[i]=b[j];
-            b[j]=temp;
+            x=i;
+            max=b[i];
         }
-    }
+        if(min>b[i])
+        {
+            y=i;
+            min=b[i];
+        }
  }
- let res;
- let j=a-1;
- let count,val;
- let flag=0;
- while(flag!==1)
- {
- for(let i=0;i<a;i++)
- {
-     count=parseInt(0);
-     res=parseInt(b[j]);
-     if(res==b[i])
-     {
-        count=count+1
-     }
-     if(count==1)
-     {
-         val=parseInt(b[j-1]);
-         flag=1;
-     }
-     j=j-1;
- }
- }
- var c=val-parseInt(b[0]);
+ var c=parseInt(x)-parseInt(y);
  console.log(c);
 });
